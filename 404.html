@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 - Page Not Found</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/main/NeutroniumLogo.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400&display=swap" rel="stylesheet">
   <style>
     html, body {
@@ -16,11 +17,13 @@
       background-color: #121212;
       color: white;
       text-align: center;
+      flex-direction: column;
     }
 
     .container {
       max-width: 600px;
-      padding: 20px;
+      width: 100%;
+      padding: 40px;
       border-radius: 15px;
       background: linear-gradient(45deg, #ff9800, #ff5722);
     }
@@ -41,7 +44,13 @@
       margin-bottom: 20px;
     }
 
-    .download-button {
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .download-button, .home-button {
       display: inline-flex;
       align-items: center;
       background: linear-gradient(45deg, #ff9800, #ff5722);
@@ -56,16 +65,16 @@
       box-shadow: 0px 4px 10px rgba(255, 87, 34, 0.4);
     }
 
-    .download-button:hover {
+    .download-button:hover, .home-button:hover {
       transform: scale(1.05);
       box-shadow: 0px 6px 15px rgba(255, 87, 34, 0.5);
     }
 
-    .download-button span {
+    .download-button span, .home-button span {
       margin-right: 12px;
     }
 
-    .download-button .windows-logo {
+    .windows-logo {
       width: 35px;
       height: 35px;
     }
@@ -77,10 +86,16 @@
   <h1>404</h1>
   <p>Oops! The page you’re looking for doesn’t exist.</p>
   <div class="cta-text">Try Neutronium today!</div>
-  <a href="https://ejxp.github.io/neutronium.github.io/" class="download-button">
-    <span>Go Back to Home</span>
-    <img src="https://i.imgur.com/GtS1w0U.png" alt="Windows Logo" class="windows-logo">
-  </a>
+
+  <div class="button-container">
+    <a href="https://ejxp.github.io/neutronium.github.io/" class="home-button">
+      <span>Go Back to Home</span>
+    </a>
+    <a href="https://sites.google.com/view/neutronium-browser/thank-you" class="download-button">
+      <span>Download</span>
+      <img src="https://i.imgur.com/GtS1w0U.png" alt="Windows Logo" class="windows-logo">
+    </a>
+  </div>
 </div>
 
 </body>

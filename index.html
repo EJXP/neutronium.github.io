@@ -406,11 +406,19 @@
 </html>" width="100%" height="500" style="border: none;"></iframe>
   </div>
 
-  <button onclick="document.getElementById('myAudio').play()">Play Music</button>
-<audio id="myAudio" loop>
-  <source src="https://ejxp.github.io/neutronium.github.io/background_music.mp3" type="audio/mp3">
+  <audio id="audio" loop>
+  <source src="background-music.mp3" type="audio/mp3">
   Your browser does not support the audio element.
 </audio>
+
+<button id="playButton" style="display:none;" onclick="document.getElementById('audio').play()">Play</button>
+
+<script>
+  window.onload = function() {
+    document.getElementById("playButton").click();  // Simulate the button click
+  };
+</script>
+
 
 
 

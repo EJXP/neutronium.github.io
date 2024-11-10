@@ -136,10 +136,144 @@
       <h2 style="font-size: 50px; color: #ff7926;">AI Copilot</h2>
       <p style="font-size: 35px; color: #ff7926;">Neutronium has a sidebar powered by OpenAI's ChatGPT (Version: GPT-4o mini). By the simple click of a side button, this sidebar will pop up where you can ask it any questions you may have. This follows our rules we try to follow by being a light-weight browser!</p>
     </div>
-    <iframe src="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/main/copilotembed.html">
-      width="100%"
-      height="500"
-      style="border: none;">
+    <iframe srcdoc="<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Copilot Sidebar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Comfortaa', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: transparent;
+        }
+
+        .sidebar {
+            width: 400px;
+            height: 500px;
+            background-color: #37313d;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .sidebar h1 {
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            background-image: linear-gradient(45deg, #f28923, #f5a623, #f28923, #f5a623);
+            -webkit-text-fill-color: transparent;
+            font-size: 36px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .messages {
+            flex-grow: 1;
+            width: 100%;
+            padding: 10px;
+            color: #ffffff;
+            overflow-y: auto;
+            font-size: 16px;
+        }
+
+        .input-box {
+            width: 100%;
+            background-color: #312c36;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .input-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .message {
+            background-color: #45405a;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            max-width: 90%;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background-color: #312c36;
+        }
+
+        .ai-message {
+            align-self: flex-start;
+            background-color: #37313d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h1>AI Copilot</h1>
+        
+        <div class="messages" id="message-container"></div>
+        
+        <div class="input-container">
+            <input class="input-box" id="user-input" type="text" placeholder="Type a message..." onkeydown="sendMessage(event)" />
+        </div>
+    </div>
+
+    <script>
+        function sendMessage(event) {
+            if (event.key === 'Enter') {
+                const inputBox = document.getElementById('user-input');
+                const messageContainer = document.getElementById('message-container');
+                const userMessage = inputBox.value.trim();
+
+                if (userMessage !== '') {
+                    // Display user message
+                    const userMessageElement = document.createElement('div');
+                    userMessageElement.classList.add('message', 'user-message');
+                    userMessageElement.innerText = userMessage;
+                    messageContainer.appendChild(userMessageElement);
+                    
+                    // Clear the input box
+                    inputBox.value = '';
+
+                    // Simulate AI response
+                    setTimeout(() => {
+                        const aiMessageElement = document.createElement('div');
+                        aiMessageElement.classList.add('message', 'ai-message');
+                        aiMessageElement.innerText = "This is just an example, please download Neutronium to get the full access!";
+                        messageContainer.appendChild(aiMessageElement);
+
+                        // Scroll to the bottom
+                        messageContainer.scrollTop = messageContainer.scrollHeight;
+                    }, 500);
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
+"width="100%" height="500" style="border: none;">
     </iframe>
   </div>
 
@@ -149,10 +283,144 @@
       <h2 style="font-size: 50px; color: #ff7926;">Complete Privacy</h2>
       <p style="font-size: 35px; color: #ff7926;">All unsafe websites blocked. All history is completely deleted with incognito enabled or deleted from the history tab. Any frequently reported sites will be closely monitored by our security team!</p>
     </div>
-  <iframe src="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/main/historyembed.html"
-    width="100%"
-    height="500"
-    style="border: none;">
+  <iframe srcdoc="
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Sidebar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Comfortaa', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: transparent;
+        }
+
+        .sidebar {
+            width: 840px;
+            height: 580px;
+            background-color: #37313d;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar h1 {
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            background-image: linear-gradient(45deg, #f28923, #f5a623, #f28923, #f5a623);
+            -webkit-text-fill-color: transparent;
+            font-size: 36px;
+            text-align: center;
+            margin: 0;
+            z-index: 1;
+        }
+
+        .search-input {
+            margin-top: 10px;
+            width: 100%;
+            background-color: #312c36;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        .messages {
+            flex-grow: 1;
+            width: 100%;
+            padding: 10px;
+            color: #ffffff;
+            overflow-y: auto;
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .message {
+            background-color: #45405a;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            max-width: 90%;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background-color: #312c36;
+        }
+
+        .ai-message {
+            align-self: flex-start;
+            background-color: #37313d;
+        }
+
+        .empty-message {
+            position: absolute;
+            top: 50%;
+            left: 60%; /* Adjusted for 10% more to the right */
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            background-image: linear-gradient(45deg, #f28923, #f5a623, #f28923, #f5a623);
+            -webkit-text-fill-color: transparent;
+            font-size: 60px; /* Set font size to 50px */
+            font-weight: bold; /* Make it bold */
+            z-index: 1;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            right: -7%;
+            width: 120%;
+            height: 100%;
+            background-image: url('https://i.imgur.com/r024sbY.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 1.0;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h1>History</h1>
+        
+        <input class="search-input" id="user-input" type="text" placeholder="Search your history..." onkeydown="sendMessage(event)" />
+        
+        <div class="messages" id="message-container">
+            <div class="empty-message">
+                <p>There's nothing here!</p>
+            </div>
+        </div>
+        <div class="background-image"></div>
+    </div>
+
+
+</body>
+</html>
+"width="100%" height="500" style="border: none;">
   <iframe>
      </div> 
     

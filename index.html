@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neutronium Web Browser</title>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/main/NeutroniumLogo.png">
+  <link rel="icon" href="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/assets/NeutroniumLogo.png">
   <style>
     body {
       background-color: #1c1624;
@@ -130,7 +130,7 @@
       <a href="https://ejxp.github.io/neutronium.github.io/privacy-policy">More details here</a>. Take browser security seriously. Use Neutronium.
     </div>
     <div class="image">
-      <img src="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/main/banner1.png" alt="Neutronium Banner" style="max-width: 100%; height: auto;">
+      <img src="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/assets/banner1.png" alt="Neutronium Banner" style="max-width: 100%; height: auto;">
     </div>
   </div>
 
@@ -432,11 +432,27 @@
     Your browser does not support the audio element.
   </audio>
   
-  <script>
-    document.body.addEventListener('mousemove', function() {
-      document.getElementById('audio').play();
-    });
-  </script>
+<audio id="audio">
+  <source src="https://github.com/EJXP/neutronium.github.io/raw/assets/click.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  document.body.addEventListener('mousemove', function() {
+    const audio = document.getElementById('audio');
+    // Ensure the audio starts from the beginning each time
+    audio.currentTime = 0;
+    audio.play();
+  });
+
+  // Optionally, stop the audio after it finishes
+  document.getElementById('audio').addEventListener('ended', function() {
+    const audio = document.getElementById('audio');
+    audio.pause();
+    audio.currentTime = 0; // Reset to the beginning
+  });
+</script>
+
   
 </body>
 </html>

@@ -3,92 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neutronium - Privacy & Security Browser</title>
+  <title>Neutronium Web Browser</title>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/main/NeutroniumLogo.png">
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Comfortaa', sans-serif;
-      background-color: #352945;
+      background-color: #332742;
       color: #ff7926;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      padding: 40px;
     }
     .container {
-      max-width: 1200px;
       display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 1200px;
+      width: 100%;
       align-items: center;
-      gap: 40px;
-    }
-    .text-content {
-      max-width: 500px;
     }
     .title {
       font-size: 50px;
-      margin: 0;
+      text-align: center;
     }
-    .description {
-      font-size: 24px;
-      margin: 20px 0;
-      line-height: 1.6;
-    }
-    .description a {
+    .why-neutronium {
+      font-size: 72px;
       color: #ff7926;
       text-decoration: underline;
     }
-    .banner-image {
-      max-width: 400px;
-      width: 100%;
-      border-radius: 8px;
-    }
-    .download-button {
-      display: inline-flex;
-      align-items: center;
-      background: linear-gradient(45deg, #ff9800, #ff5722);
-      border: none;
-      border-radius: 8px;
-      padding: 20px 36px;
-      color: white;
-      font-size: 30px;
-      cursor: pointer;
+    .link {
+      color: #ff7926;
       text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0px 4px 10px rgba(255, 87, 34, 0.4);
     }
-    .download-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0px 6px 15px rgba(255, 87, 34, 0.5);
+    .section {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
     }
-    .download-button span {
-      margin-right: 12px;
+    .description {
+      font-size: 35px;
+      line-height: 1.4;
     }
-    .windows-logo {
-      width: 35px;
-      height: 35px;
+    .sidebar-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .sidebar {
+      background-color: #37313d;
+      border-radius: 20px;
+      padding: 20px;
+      color: white;
+      width: 400px;
+    }
+    .sidebar h1 {
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      background-image: linear-gradient(45deg, #f28923, #f5a623, #f28923, #f5a623);
+      -webkit-text-fill-color: transparent;
+      font-size: 36px;
+      text-align: center;
+    }
+    .messages, .input-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .input-box, .search-input {
+      background-color: #312c36;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      padding: 15px;
+      font-size: 16px;
+      width: 100%;
+    }
+    .empty-message {
+      color: #ff7926;
+      font-size: 60px;
+      font-weight: bold;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="text-content">
-      <h1 class="title">Neutronium</h1>
-      <p class="description">
-        Neutronium is the best browser for privacy and security. We collect your data anonymously and use it for a better experience. 
-        All data collection settings can be turned off in the settings tab. 
-        <a href="https://ejxp.github.io/neutronium.github.io/privacy-policy" target="_blank">More details here</a>. 
-        Take browser security seriously. Use Neutronium.
-      </p>
-      <a href="https://sites.google.com/view/neutronium-browser/thank-you" class="download-button">
-        <span>Download</span>
-        <img src="https://i.imgur.com/GtS1w0U.png" alt="Windows Logo" class="windows-logo">
-      </a>
+<div class="container">
+  <h1 class="title">Neutronium</h1>
+  
+  <a href="https://sites.google.com/view/neutronium-browser/features" class="why-neutronium link">Why Neutronium?</a>
+
+  <div class="section">
+    <!-- AI Copilot Sidebar HTML -->
+    <div class="sidebar-container">
+      <div class="sidebar">
+        <h1>AI Copilot</h1>
+        <div class="messages" id="message-container"></div>
+        <div class="input-container">
+          <input class="input-box" id="user-input" type="text" placeholder="Type a message..." onkeydown="sendMessage(event)">
+        </div>
+      </div>
     </div>
-    <img src="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/main/banner1.png" alt="Neutronium Banner" class="banner-image">
+
+    <!-- AI Copilot Description -->
+    <div class="description">
+      <h2>AI Copilot</h2>
+      <p>Neutronium has a sidebar powered by OpenAI's ChatGPT (Version: GPT-4o mini). By the simple click of a side button, this sidebar will pop up where you can ask it any questions you may have. This follows our rules we try to follow by being a light-weight browser!</p>
+    </div>
   </div>
+
+  <div class="section">
+    <!-- Complete Privacy Description -->
+    <div class="description">
+      <h2>Complete Privacy</h2>
+      <p>All unsafe websites blocked. All history is completely deleted with incognito enabled or deleted from the history tab. Any frequently reported sites will be closely monitored from our security team!</p>
+    </div>
+
+    <!-- History Sidebar HTML -->
+    <div class="sidebar">
+      <h1>History</h1>
+      <input class="search-input" id="user-input" type="text" placeholder="Search your history..." onkeydown="sendMessage(event)">
+      <div class="messages" id="message-container">
+        <div class="empty-message">There's nothing here!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function sendMessage(event) {
+    if (event.key === 'Enter') {
+      const inputBox = event.target;
+      const messageContainer = inputBox.closest('.sidebar').querySelector('.messages');
+      const userMessage = inputBox.value.trim();
+
+      if (userMessage !== '') {
+        const userMessageElement = document.createElement('div');
+        userMessageElement.classList.add('message', 'user-message');
+        userMessageElement.innerText = userMessage;
+        messageContainer.appendChild(userMessageElement);
+        
+        inputBox.value = '';
+
+        setTimeout(() => {
+          const aiMessageElement = document.createElement('div');
+          aiMessageElement.classList.add('message', 'ai-message');
+          aiMessageElement.innerText = "This is just an example, please download Neutronium to get the full access!";
+          messageContainer.appendChild(aiMessageElement);
+          messageContainer.scrollTop = messageContainer.scrollHeight;
+        }, 500);
+      }
+    }
+  }
+</script>
 
 </body>
 </html>

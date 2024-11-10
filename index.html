@@ -433,14 +433,17 @@
 </audio>
 
 <script>
-  document.body.addEventListener('mousemove', function() {
+  document.body.addEventListener('click', function() {
     const audio = document.getElementById('audio');
-    // Ensure the audio starts from the beginning each time
-    audio.currentTime = 0;
+    
+    // If the audio is already playing, don't play again
+    if (!audio.paused) return;
+
+    audio.currentTime = 0; // Reset the audio to start
     audio.play();
   });
 
-  // Optionally, stop the audio after it finishes
+  // Stop the audio when it ends
   document.getElementById('audio').addEventListener('ended', function() {
     const audio = document.getElementById('audio');
     audio.pause();
@@ -448,6 +451,5 @@
   });
 </script>
 
-  
 </body>
 </html>

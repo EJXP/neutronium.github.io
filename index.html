@@ -104,6 +104,13 @@
       margin: 0 20px;
     }
 
+    .sidebar-frame {
+      max-width: 500px;
+      margin: 20px;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
   </style>
 </head>
 <body>
@@ -137,7 +144,59 @@
       <p style="font-size: 35px; color: #ff7926;">Neutronium has a sidebar powered by OpenAI's ChatGPT (Version: GPT-4o mini). By the simple click of a side button, this sidebar will pop up where you can ask it any questions you may have. This follows our rules we try to follow by being a light-weight browser!</p>
     </div>
     <!-- AI Copilot Sidebar Code -->
-    <iframe srcdoc="<!DOCTYPE html>...</iframe> <!-- Shortened here -->
+    <div class="sidebar-frame">
+      <iframe srcdoc="
+      <!DOCTYPE html>
+      <html lang='en'>
+      <head>
+          <meta charset='UTF-8'>
+          <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+          <title>AI Copilot Sidebar</title>
+          <link href='https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap' rel='stylesheet'>
+          <style>
+              body { margin: 0; font-family: 'Comfortaa', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: transparent; }
+              .sidebar { width: 400px; height: 500px; background-color: #37313d; border-radius: 20px; display: flex; flex-direction: column; padding: 20px; }
+              .sidebar h1 { color: transparent; background-clip: text; -webkit-background-clip: text; background-image: linear-gradient(45deg, #f28923, #f5a623); font-size: 36px; text-align: center; }
+              .messages { flex-grow: 1; width: 100%; padding: 10px; color: #fff; overflow-y: auto; font-size: 16px; }
+              .input-box { width: 100%; background-color: #312c36; border: none; border-radius: 10px; padding: 15px; color: #fff; }
+              .message { background-color: #45405a; border-radius: 10px; padding: 10px; margin-bottom: 10px; }
+              .user-message { align-self: flex-end; background-color: #312c36; }
+              .ai-message { align-self: flex-start; background-color: #37313d; }
+          </style>
+      </head>
+      <body>
+          <div class='sidebar'>
+              <h1>AI Copilot</h1>
+              <div class='messages' id='message-container'></div>
+              <input class='input-box' id='user-input' type='text' placeholder='Type a message...' onkeydown='sendMessage(event)' />
+          </div>
+          <script>
+              function sendMessage(event) {
+                  if (event.key === 'Enter') {
+                      const inputBox = document.getElementById('user-input');
+                      const messageContainer = document.getElementById('message-container');
+                      const userMessage = inputBox.value.trim();
+                      if (userMessage !== '') {
+                          const userMessageElement = document.createElement('div');
+                          userMessageElement.classList.add('message', 'user-message');
+                          userMessageElement.innerText = userMessage;
+                          messageContainer.appendChild(userMessageElement);
+                          inputBox.value = '';
+                          setTimeout(() => {
+                              const aiMessageElement = document.createElement('div');
+                              aiMessageElement.classList.add('message', 'ai-message');
+                              aiMessageElement.innerText = 'This is just an example, please download Neutronium to get the full access!';
+                              messageContainer.appendChild(aiMessageElement);
+                              messageContainer.scrollTop = messageContainer.scrollHeight;
+                          }, 500);
+                      }
+                  }
+              }
+          </script>
+      </body>
+      </html>
+      " style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
   </div>
 
   <!-- Complete Privacy Section -->
@@ -147,7 +206,33 @@
       <p style="font-size: 35px; color: #ff7926;">All unsafe websites blocked. All history is completely deleted with incognito enabled or deleted from the history tab. Any frequently reported sites will be closely monitored by our security team!</p>
     </div>
     <!-- History Sidebar Code -->
-    <iframe srcdoc="<!DOCTYPE html>...</iframe> <!-- Shortened here -->
+    <div class="sidebar-frame">
+      <iframe srcdoc="
+      <!DOCTYPE html>
+      <html lang='en'>
+      <head>
+          <meta charset='UTF-8'>
+          <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+          <title>History Sidebar</title>
+          <link href='https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap' rel='stylesheet'>
+          <style>
+              body { margin: 0; font-family: 'Comfortaa', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: transparent; }
+              .sidebar { width: 400px; height: 500px; background-color: #37313d; border-radius: 20px; padding: 20px; color: #fff; display: flex; flex-direction: column; }
+              h1 { font-size: 24px; text-align: center; }
+              .history-item { background-color: #45405a; border-radius: 10px; padding: 10px; margin-bottom: 10px; font-size: 16px; }
+          </style>
+      </head>
+      <body>
+          <div class='sidebar'>
+              <h1>Browsing History</h1>
+              <div class='history-item'>Example Site - visited on 01/01/2023</div>
+              <div class='history-item'>Example Site - visited on 01/02/2023</div>
+              <div class='history-item'>Example Site - visited on 01/03/2023</div>
+          </div>
+      </body>
+      </html>
+      " style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
   </div>
 
 </body>

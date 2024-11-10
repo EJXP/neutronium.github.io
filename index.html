@@ -95,14 +95,29 @@
     .side-by-side {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start;
+      margin: 100px 100;
+      width: 100%;
     }
 
     .text-block {
       max-width: 500px;
-      text-align: left;
-      margin: 0 20px;
+      text-align: left !important;
+      margin: 0 100px;
     }
+
+    iframe { 
+    border: none;
+    margin-left: 0;
+    margin-right: 100;
+    background-color: transparent;
+    display: block; 
+}
+.iframe-wrapper {
+  width: 100%;
+  max-width: 280px; /* Controls maximum width of the iframe */
+}
+
 
   </style>
 </head>
@@ -128,14 +143,21 @@
   <!-- Why Neutronium Section -->
   <div class="section">
     <a href="https://sites.google.com/view/neutronium-browser/features" class="section-title">Why Neutronium?</a>
-  </div>
+
+    <style>
+      .section-title {
+        color: #ff7926;
+      }
+    </style>
+      </div>
 
   <!-- AI Copilot Section -->
   <div class="side-by-side">
     <div class="text-block">
-      <h2 style="font-size: 50px; color: #ff7926;">AI Copilot</h2>
+      <h2 style="font-size: 70px; color: #ff7926;">AI Copilot</h2>
       <p style="font-size: 35px; color: #ff7926;">Neutronium has a sidebar powered by OpenAI's ChatGPT (Version: GPT-4o mini). By the simple click of a side button, this sidebar will pop up where you can ask it any questions you may have. This follows our rules we try to follow by being a light-weight browser!</p>
     </div>
+    <div class="iframe-wrapper"></div>
     <iframe srcdoc="<!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -155,8 +177,8 @@
     }
 
     .sidebar {
-      width: 400px;
-      height: 500px;
+      width: 500px;
+      height: 600px;
       background-color: #37313d;
       border-radius: 20px;
       display: flex;
@@ -268,14 +290,13 @@
     }
   </script>
 </body>
-</html>
-" width="100%" height="500" style="border: none;"></iframe>
+</html>" width="400" height="600" style="width: 100%; max-width: 500px; border: none; background-color: transparent;"></iframe>
   </div>
 
   <!-- Complete Privacy Section -->
   <div class="side-by-side">
     <div class="text-block">
-      <h2 style="font-size: 50px; color: #ff7926;">Complete Privacy</h2>
+      <h2 style="font-size: 55px; color: #ff7926;">Complete Privacy</h2>
       <p style="font-size: 35px; color: #ff7926;">All unsafe websites blocked. All history is completely deleted with incognito enabled or deleted from the history tab. Any frequently reported sites will be closely monitored by our security team!</p>
     </div>
     <iframe srcdoc="<!DOCTYPE html>
@@ -403,24 +424,19 @@
     <div class='background-image'></div>
   </div>
 </body>
-</html>" width="100%" height="500" style="border: none;"></iframe>
+</html>" width="840" height="700" style="border: none;"></iframe>
   </div>
 
   <audio id="audio" loop>
-  <source src="background_music.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio>
-
-<button id="playButton" style="display:none;" onclick="document.getElementById('audio').play()">Play</button>
-
-<script>
-  window.onload = function() {
-    document.getElementById("playButton").click();  // Simulate the button click
-  };
-</script>
-
-
-
-
+    <source src="background_music.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <script>
+    document.body.addEventListener('mousemove', function() {
+      document.getElementById('audio').play();
+    });
+  </script>
+  
 </body>
 </html>

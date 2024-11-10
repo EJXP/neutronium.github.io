@@ -1,295 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neutronium Web Browser</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/main/NeutroniumLogo.png">
-    <style>
-        /* Main Styling */
-        body {
-            background-color: #1c1624;
-            color: #ff7926;
-            font-family: 'Comfortaa', sans-serif;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neutronium Web Browser</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/main/NeutroniumLogo.png">
+  <style>
+    body {
+      background-color: #1c1624;
+      color: #ff7926;
+      font-family: 'Comfortaa', sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
-        h1 {
-            font-size: 50px;
-            color: #ff7926;
-            margin: 10px 0;
-        }
+    .container {
+      max-width: 1200px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-        p {
-            font-size: 40px;
-            color: #ff7926;
-            max-width: 600px;
-            text-align: left;
-        }
+    h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
 
-        /* Link Styling */
-        .link-text {
-            text-decoration: underline;
-            color: #ff7926;
-        }
+    .subtitle {
+      font-size: 40px;
+      margin-bottom: 20px;
+      max-width: 50%;
+      text-align: left;
+    }
 
-        /* Image and Text Container */
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            width: 100%;
-            margin-top: 20px;
-        }
+    .subtitle a {
+      text-decoration: underline;
+      color: #ff7926;
+    }
 
-        /* Right Aligned Image */
-        .container img {
-            width: 400px;
-            height: auto;
-            border-radius: 10px;
-        }
+    .image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
 
-        /* Download Button */
-        .download-button {
-            display: inline-flex;
-            align-items: center;
-            background: linear-gradient(45deg, #ff9800, #ff5722);
-            border: none;
-            border-radius: 8px;
-            padding: 24px 40px;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0px 4px 10px rgba(255, 87, 34, 0.4);
-        }
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(45deg, #ff9800, #ff5722);
+      border: none;
+      border-radius: 8px;
+      padding: 24px 40px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0px 4px 10px rgba(255, 87, 34, 0.4);
+    }
 
-        .download-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 6px 15px rgba(255, 87, 34, 0.5);
-        }
+    .download-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 15px rgba(255, 87, 34, 0.5);
+    }
 
-        .download-button span {
-            margin-right: 12px;
-        }
+    .download-button span {
+      margin-right: 12px;
+    }
 
-        /* "Why Neutronium" Link */
-        .why-neutronium {
-            font-size: 72px;
-            margin: 40px 0 20px;
-            text-decoration: underline;
-        }
+    .download-button .windows-logo {
+      width: 35px;
+      height: 35px;
+    }
 
-        /* Subsections */
-        .section-title {
-            font-size: 50px;
-            margin: 20px 0;
-        }
+    .section {
+      width: 100%;
+      margin: 30px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        .section-text {
-            font-size: 35px;
-            max-width: 600px;
-            text-align: left;
-        }
+    .section-title {
+      font-size: 72px;
+      margin: 20px 0;
+      text-decoration: underline;
+    }
 
-        /* Sidebar Components */
-        .sidebar-container {
-            display: flex;
-            justify-content: space-between;
-            max-width: 1200px;
-            width: 100%;
-            margin-top: 40px;
-        }
-    </style>
-</head>
+    .side-by-side {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-<body>
-    <h1>Neutronium</h1>
-    <div class="container">
-        <div>
-            <p>
-                Neutronium is the best browser for privacy and security. We collect your data anonymously and use it for
-                a better experience. All data collection settings can be turned off in the settings tab.
-                <a href="https://ejxp.github.io/neutronium.github.io/privacy-policy" class="link-text">More details here.</a>
-                Take browser security seriously. Use Neutronium.
-            </p>
-            <a href="https://sites.google.com/view/neutronium-browser/thank-you" class="download-button">
-                <span>Download</span>
-                <img src="https://i.imgur.com/GtS1w0U.png" alt="Windows Logo" class="windows-logo" width="35" height="35">
-            </a>
-        </div>
-        <img src="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/main/banner1.png" alt="Neutronium Banner">
-    </div>
+    .text-block {
+      max-width: 500px;
+      text-align: left;
+      margin: 0 20px;
+    }
 
-    <a href="https://sites.google.com/view/neutronium-browser/features" class="why-neutronium">Why Neutronium?</a>
-
-    <div class="sidebar-container">
-        <!-- AI Copilot Section -->
-        <div>
-            <h2 class="section-title">AI Copilot</h2>
-            <p class="section-text">
-                Neutronium has a sidebar powered by OpenAI's ChatGPT (Version: GPT-4o mini). By the simple click of a side
-                button, this sidebar will pop up where you can ask it any questions you may have. This follows our rules we
-                try to follow by being a light-weight browser!
-            </p>
-            <!-- AI Copilot Sidebar -->
-            <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Copilot Sidebar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Comfortaa', cursive;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: transparent;
-        }
-
-        .sidebar {
-            width: 400px;
-            height: 500px;
-            background-color: #37313d;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .sidebar h1 {
-            color: transparent;
-            background-clip: text;
-            -webkit-background-clip: text;
-            background-image: linear-gradient(45deg, #f28923, #f5a623, #f28923, #f5a623);
-            -webkit-text-fill-color: transparent;
-            font-size: 36px;
-            text-align: center;
-            margin: 0;
-        }
-
-        .messages {
-            flex-grow: 1;
-            width: 100%;
-            padding: 10px;
-            color: #ffffff;
-            overflow-y: auto;
-            font-size: 16px;
-        }
-
-        .input-box {
-            width: 100%;
-            background-color: #312c36;
-            border: none;
-            border-radius: 10px;
-            padding: 15px;
-            color: #fff;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-        .input-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        input:focus {
-            outline: none;
-        }
-
-        .message {
-            background-color: #45405a;
-            border-radius: 10px;
-            padding: 10px;
-            margin-bottom: 10px;
-            max-width: 90%;
-            word-wrap: break-word;
-        }
-
-        .user-message {
-            align-self: flex-end;
-            background-color: #312c36;
-        }
-
-        .ai-message {
-            align-self: flex-start;
-            background-color: #37313d;
-        }
-    </style>
+  </style>
 </head>
 <body>
 
-    <div class="sidebar">
-        <h1>AI Copilot</h1>
-        
-        <div class="messages" id="message-container"></div>
-        
-        <div class="input-container">
-            <input class="input-box" id="user-input" type="text" placeholder="Type a message..." onkeydown="sendMessage(event)" />
-        </div>
+  <h1>Neutronium</h1>
+  <div class="container">
+    <div class="subtitle">
+      Neutronium is the best browser for privacy and security. We collect your data anonymously and use it for a better experience. All data collection settings can be turned off in the settings tab. 
+      <a href="https://ejxp.github.io/neutronium.github.io/privacy-policy">More details here</a>. Take browser security seriously. Use Neutronium.
     </div>
+    <div class="image">
+      <img src="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/main/banner1.png" alt="Neutronium Banner" style="max-width: 100%; height: auto;">
+    </div>
+  </div>
 
-    <script>
-        function sendMessage(event) {
-            if (event.key === 'Enter') {
-                const inputBox = document.getElementById('user-input');
-                const messageContainer = document.getElementById('message-container');
-                const userMessage = inputBox.value.trim();
+  <!-- Download Button Section -->
+  <a href="https://sites.google.com/view/neutronium-browser/thank-you" class="download-button">
+    <span>Download</span>
+    <img src="https://i.imgur.com/GtS1w0U.png" alt="Windows Logo" class="windows-logo">
+  </a>
 
-                if (userMessage !== '') {
-                    // Display user message
-                    const userMessageElement = document.createElement('div');
-                    userMessageElement.classList.add('message', 'user-message');
-                    userMessageElement.innerText = userMessage;
-                    messageContainer.appendChild(userMessageElement);
-                    
-                    // Clear the input box
-                    inputBox.value = '';
+  <!-- Why Neutronium Section -->
+  <div class="section">
+    <a href="https://sites.google.com/view/neutronium-browser/features" class="section-title">Why Neutronium?</a>
+  </div>
 
-                    // Simulate AI response
-                    setTimeout(() => {
-                        const aiMessageElement = document.createElement('div');
-                        aiMessageElement.classList.add('message', 'ai-message');
-                        aiMessageElement.innerText = "This is just an example, please download Neutronium to get the full access!";
-                        messageContainer.appendChild(aiMessageElement);
-
-                        // Scroll to the bottom
-                        messageContainer.scrollTop = messageContainer.scrollHeight;
-                    }, 500);
-                }
-            }
-        }
-    </script>
-
-</body>
-</html>
-
-        </div>
-
-        <!-- Complete Privacy Section -->
-        <div>
-            <h2 class="section-title">Complete Privacy</h2>
-            <p class="section-text">
-                All unsafe websites blocked. All history is completely deleted with incognito enabled or deleted from the
-                history tab. Any frequently reported sites will be closely monitored by our security team!
-            </p>
-            <!-- History Sidebar -->
-            <!DOCTYPE html>
+  <!-- AI Copilot Section -->
+  <div class="side-by-side">
+    <div class="text-block">
+      <h2 style="font-size: 50px; color: #ff7926;">AI Copilot</h2>
+      <p style="font-size: 35px; color: #ff7926;">Neutronium has a sidebar powered by OpenAI's ChatGPT (Version: GPT-4o mini). By the simple click of a side button, this sidebar will pop up where you can ask it any questions you may have. This follows our rules we try to follow by being a light-weight browser!</p>
+    </div>
+    <!-- AI Copilot Sidebar Code -->
+    <iframe srcdoc="<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -424,10 +272,154 @@
 
 
 </body>
-</html>
+</html>"
+  </div>
 
-        </div>
+  <!-- Complete Privacy Section -->
+  <div class="side-by-side">
+    <div class="text-block">
+      <h2 style="font-size: 50px; color: #ff7926;">Complete Privacy</h2>
+      <p style="font-size: 35px; color: #ff7926;">All unsafe websites blocked. All history is completely deleted with incognito enabled or deleted from the history tab. Any frequently reported sites will be closely monitored by our security team!</p>
     </div>
-</body>
+    <!-- History Sidebar Code -->
+    <iframe srcdoc="<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Sidebar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Comfortaa', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: transparent;
+        }
 
+        .sidebar {
+            width: 840px;
+            height: 580px;
+            background-color: #37313d;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar h1 {
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            background-image: linear-gradient(45deg, #f28923, #f5a623, #f28923, #f5a623);
+            -webkit-text-fill-color: transparent;
+            font-size: 36px;
+            text-align: center;
+            margin: 0;
+            z-index: 1;
+        }
+
+        .search-input {
+            margin-top: 10px;
+            width: 100%;
+            background-color: #312c36;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        .messages {
+            flex-grow: 1;
+            width: 100%;
+            padding: 10px;
+            color: #ffffff;
+            overflow-y: auto;
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .message {
+            background-color: #45405a;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            max-width: 90%;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background-color: #312c36;
+        }
+
+        .ai-message {
+            align-self: flex-start;
+            background-color: #37313d;
+        }
+
+        .empty-message {
+            position: absolute;
+            top: 50%;
+            left: 60%; /* Adjusted for 10% more to the right */
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            background-image: linear-gradient(45deg, #f28923, #f5a623, #f28923, #f5a623);
+            -webkit-text-fill-color: transparent;
+            font-size: 60px; /* Set font size to 50px */
+            font-weight: bold; /* Make it bold */
+            z-index: 1;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            right: -7%;
+            width: 120%;
+            height: 100%;
+            background-image: url('https://i.imgur.com/r024sbY.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 1.0;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h1>History</h1>
+        
+        <input class="search-input" id="user-input" type="text" placeholder="Search your history..." onkeydown="sendMessage(event)" />
+        
+        <div class="messages" id="message-container">
+            <div class="empty-message">
+                <p>There's nothing here!</p>
+            </div>
+        </div>
+        <div class="background-image"></div>
+    </div>
+
+
+</body>
+</html>"
+        
+  </div>
+
+</body>
 </html>

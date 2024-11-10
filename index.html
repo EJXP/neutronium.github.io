@@ -1,12 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visit Home Page</title>
-    <link rel="icon" href="https://i.imgur.com/TAJjDgm.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neutronium - Privacy & Security Browser</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comfortaa', sans-serif;
+      background-color: #332742;
+      color: #ff7926;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .text-content {
+      max-width: 500px;
+    }
+    .title {
+      font-size: 50px;
+      margin: 0;
+    }
+    .description {
+      font-size: 24px;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+    .description a {
+      color: #ff7926;
+      text-decoration: underline;
+    }
+    .banner-image {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+    }
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(45deg, #ff9800, #ff5722);
+      border: none;
+      border-radius: 8px;
+      padding: 20px 36px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0px 4px 10px rgba(255, 87, 34, 0.4);
+    }
+    .download-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 15px rgba(255, 87, 34, 0.5);
+    }
+    .download-button span {
+      margin-right: 12px;
+    }
+    .windows-logo {
+      width: 35px;
+      height: 35px;
+    }
+  </style>
 </head>
 <body>
-    <a href="https://sites.google.com/view/neutronium-browser/home" target="_blank">Visit Home Page</a>
+
+  <div class="container">
+    <div class="text-content">
+      <h1 class="title">Neutronium</h1>
+      <p class="description">
+        Neutronium is the best browser for privacy and security. We collect your data anonymously and use it for a better experience. 
+        All data collection settings can be turned off in the settings tab. 
+        <a href="https://ejxp.github.io/neutronium.github.io/privacy-policy" target="_blank">More details here</a>. 
+        Take browser security seriously. Use Neutronium.
+      </p>
+      <a href="https://sites.google.com/view/neutronium-browser/thank-you" class="download-button">
+        <span>Download</span>
+        <img src="https://i.imgur.com/GtS1w0U.png" alt="Windows Logo" class="windows-logo">
+      </a>
+    </div>
+    <img src="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/main/banner1.png" alt="Neutronium Banner" class="banner-image">
+  </div>
+
 </body>
 </html>

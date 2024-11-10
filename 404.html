@@ -35,19 +35,39 @@
       margin-bottom: 30px;
     }
 
-    a {
-      display: inline-block;
-      padding: 15px 30px;
-      background-color: #ff5722;
-      color: white;
-      text-decoration: none;
-      border-radius: 25px;
-      font-size: 20px;
-      transition: background-color 0.3s ease;
+    .cta-text {
+      font-size: 36px;
+      color: #ff9800;
+      margin-bottom: 20px;
     }
 
-    a:hover {
-      background-color: #ff9800;
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(45deg, #ff9800, #ff5722);
+      border: none;
+      border-radius: 50px;
+      padding: 24px 40px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0px 4px 10px rgba(255, 87, 34, 0.4);
+    }
+
+    .download-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 15px rgba(255, 87, 34, 0.5);
+    }
+
+    .download-button span {
+      margin-right: 12px;
+    }
+
+    .download-button .windows-logo {
+      width: 35px;
+      height: 35px;
     }
   </style>
 </head>
@@ -56,7 +76,11 @@
 <div class="container">
   <h1>404</h1>
   <p>Oops! The page you’re looking for doesn’t exist.</p>
-  <a href="/">Go Back to Home</a>
+  <div class="cta-text">Try Neutronium today!</div>
+  <a href="https://sites.google.com/view/neutronium-browser/thank-you" class="download-button">
+    <span>Download</span>
+    <img src="https://i.imgur.com/GtS1w0U.png" alt="Windows Logo" class="windows-logo">
+  </a>
 </div>
 
 </body>

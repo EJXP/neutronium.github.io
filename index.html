@@ -7,17 +7,72 @@
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
   <link rel="icon" href="https://raw.githubusercontent.com/EJXP/neutronium.github.io/refs/heads/assets/NeutroniumLogo.png">
   <style>
-    body {
-      background-color: #1c1624;
-      color: #ff7926;
-      font-family: 'Comfortaa', sans-serif;
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+.white-top {
+  height: 100px;
+  background-color: white;
+}
+
+body {
+  background-color: #1c1624;
+  color: #ff7926;
+  font-family: 'Comfortaa', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  background-color: #ffffff; /* Top bar stays white */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20px;
+  z-index: 1000;
+}
+
+
+/* Pill-shaped button styling */
+.top-bar-button {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff; /* Same as top-bar color */
+  border-radius: 50px;
+  padding: 20px 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.top-bar-button:hover {
+  background-color: #cecece; /* Darker gray on hover */
+}
+ 
+/* Logo and text styling */
+.logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+}
+
+.logo-text {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 40px;
+  color: black;
+  margin-left: 15px;
+}
+
 
     .container {
       max-width: 1200px;
@@ -119,11 +174,29 @@
 }
 
 
+
   </style>
 </head>
 <body>
 
-  <h1>Neutronium</h1>
+<div style="height: -100px; background-color: white;"></div> <!-- 100px white gap -->
+
+<!-- Sticky Top Bar -->
+<div class="top-bar">
+    <a href="https://ejxp.github.io/neutronium.github.io/" class="top-bar-button">
+      <div class="logo">
+        <img src="https://raw.githubusercontent.com/EJXP/neutronium.github.io/assets/NeutroniumGraphicIcon.png" 
+             alt="Neutronium Logo" 
+             style="width: 80px; height: auto;"> <!-- Inline style to override CSS -->
+        <div class="logo-text">Neutronium</div>
+      </div>
+    </a>
+  </div>
+  
+  
+  
+
+  <h2 style="font-size: 100px; color: #ff7926;">Neutronium</h2>
   <div class="container">
     <div class="subtitle">
       Neutronium is the best browser for privacy and security. We collect your data anonymously and use it for a better experience. All data collection settings can be turned off in the settings tab. 
@@ -431,6 +504,58 @@
   <source src="https://github.com/EJXP/neutronium.github.io/raw/assets/click.mp3" type="audio/mp3">
   Your browser does not support the audio element.
 </audio>
+
+<!-- Outer container with 200px margin -->
+<div style="margin: 200px;">
+    <!-- Title -->
+    <h2 style="font-family: 'Comfortaa', sans-serif; color: #ff7926; font-size: 60px; margin-left: 470px; margin-bottom: -160px !important; text-align: center;">
+    The best privacy you can have
+    </h2>
+
+    <!-- Flex container for image and text below the title with animations -->
+    <div class="fade-container" style="display: flex; align-items: center; opacity: 0; transform: translateY(20px); transition: opacity 1s, transform 1s;">
+        <!-- Enlarged image with rounded corners -->
+        <img src="https://raw.githubusercontent.com/EJXP/neutronium.github.io/assets/DataBanner.png" 
+             alt="Data Banner" 
+             style="border-radius: 8px; width: 500px; height: auto; margin-right: 20px;">
+
+        <!-- Main text with 30px font size, aligned to the left -->
+        <p style="font-family: 'Comfortaa', sans-serif; color: #ff7926; font-size: 30px; line-height: 1.5; text-align: left;">
+            Unlike other web browsers, we won't steal your data. 
+            <a href="https://ejxp.github.io/neutronium.github.io/data-collection" 
+               style="color: #ff7926; text-decoration: underline;">Find out more about how we use your data here.</a>
+        </p>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const fadeElements = document.querySelectorAll(".fade-container");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Fade in and move up
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = "translateY(0)";
+            } else {
+                // Fade out and move down
+                entry.target.style.opacity = 0;
+                entry.target.style.transform = "translateY(20px)";
+            }
+        });
+    }, {
+        threshold: 0.3 // Trigger the animation when 10% of the element is visible
+    });
+
+    fadeElements.forEach(element => observer.observe(element));
+});
+</script>
+
+
+
+
+
 
 <script>
   document.body.addEventListener('click', function() {

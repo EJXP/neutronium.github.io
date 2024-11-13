@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foggy Glass Dark-Themed Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+<style>
+    /* Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Comfortaa', sans-serif;
+    }
+
+    /* Body Styling */
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgba 255, 255, 255, 0;
+    background-size: cover;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+    /* Glass Effect Container */
+    .login-container {
+        background: rgba(46, 46, 46, 0.4);
+        backdrop-filter: blur(10px);
+        padding: 40px 30px;
+        border-radius: 12px;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border: 2.5px solid rgba(185, 185, 185, 0.3);
+        text-align: center;
+    }
+
+    .login-container h2 {
+        margin-bottom: 1.5em;
+        color: #ffffff;
+        font-size: 1.8em;
+        user-select: none;
+    }
+
+    /* Input Fields */
+    .login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    background: rgba(57, 62, 70, 0);
+    border: 1px solid rgba(255, 255, 255, 0.6); /* White border */
+    border-radius: 50px;
+    color: #fff;
+    font-size: 16px;
+    outline: none; /* Remove default outline */
+}
+
+/* Optional: Add a white outline on focus */
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    border-color: #ffffff; /* Keeps border white on focus */
+    outline: 0px solid rgba(255, 255, 255, 0.6); /* Optional: white outline on focus */
+}
+
+
+
+    /* Password Field Container */
+    .password-container {
+        position: relative;
+    }
+
+    /* Padding for eye icon */
+    .password-container input {
+        padding-right: 0px;
+    }
+
+    /* Eye Icon Styling */
+    .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    /* Button Styling */
+    .login-container button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 20px;
+        background: #ffffff;
+        border: none;
+        border-radius: 50px;
+        color: #222831;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s;
+        user-select: none;
+    }
+
+    .login-container button:hover {
+        background: #afafaf;
+    }
+
+    /* Remember Me Checkbox */
+    .remember-container {
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
+        font-size: 0.9em;
+        color: white;
+    }
+
+    .remember-container input {
+        margin-right: 8px;
+    }
+
+    /* Forgot Password Link */
+    .forgot-password {
+        display: block;
+        font-size: 0.9em;
+        color: #b2bec3;
+        text-decoration: none;
+        transition: color 0.3s;
+        margin-top: 10px;
+    }
+
+    .forgot-password:hover {
+        color: #00adb5;
+    }
+
+    /* Signup Link */
+    .signup-container {
+        margin-top: 15px;
+        font-size: 0.9em;
+    }
+
+    .signup-container a {
+        color: white;
+        text-decoration: underline;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .signup-container a:hover {
+        color: #ffffff;
+    }
+
+    .login-options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.login-options label {
+    float: left;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.forgot-password {
+    float: right;
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: -15px;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form>
+        <input type="text" placeholder="Username" required>
+        
+        <div class="password-container">
+            <input type="password" id="password" placeholder="Password" required>
+            <span class="toggle-password" onclick="togglePassword()">
+                <!-- SVG Eye Icon -->
+                <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" fill="#b2bec3" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 12c-2.761 0-5-2.239-5-5s2.239-5 5-5 5 2.239 5 5-2.239 5-5 5zm0-8c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3z"/>
+                </svg>
+            </span>
+        </div>
+        
+        <div class="remember-container">
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember Me</label>
+        </div>
+        
+        <a href="#" class="forgot-password">Forgot Password?</a>
+        
+        <button type="submit">Log In</button>
+
+        <div class="signup-container">
+            Don't have an account? <a href="#">Sign up</a>
+        </div>
+    </form>
+</div>
+
+<script>
+function togglePassword() {
+    const passwordField = document.getElementById('password');
+    const eyeIcon = document.getElementById('eyeIcon');
+    
+    // Toggle password visibility
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        eyeIcon.innerHTML = '<path d="M12 19c-7 0-10-7-10-7s3-7 10-7 10 7 10 7-3 7-10 7zm-7.358-7c.646 1.037 3.291 5 7.358 5s6.712-3.963 7.358-5c-.646-1.037-3.291-5-7.358-5s-6.712 3.963-7.358 5zm3.358 0c0-2.209 1.791-4 4-4s4 1.791 4 4-1.791 4-4 4-4-1.791-4-4zm2 0c0 1.104.896 2 2 2s2-.896 2-2-.896-2-2-2-2 .896-2 2z"/>';
+    } else {
+        passwordField.type = 'password';
+        eyeIcon.innerHTML = '<path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 12c-2.761 0-5-2.239-5-5s2.239-5 5-5 5 2.239 5 5-2.239 5-5 5zm0-8c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3z"/>';
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacked!</title>
+  <style>
+    body {
+      background-color: black;
+      color: lime;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 8em;
+      animation: glitch 0.8s infinite alternate;
+      color: red;
+      text-shadow: 2px 0px 10px rgba(255,0,0,0.8), -2px 0px 10px rgba(255,0,0,0.8);
+      margin-top: 100px;
+    }
+
+    p {
+      font-size: 2em;
+      animation: flicker 0.05s infinite;
+      color: white;
+      margin-top: -40px;
+    }
+
+    .terminal {
+      background: black;
+      color: lime;
+      font-size: 1.5em;
+      padding: 15px;
+      margin: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+      display: block;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      max-height: 400px;
+      overflow-y: auto;
+      text-align: left;
+    }
+
+    .code {
+      font-family: 'Courier New', monospace;
+      font-size: 1.2em;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+
+    .blink {
+      animation: blink 0.3s step-end infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translate(0px, 0px);
+        text-shadow: 2px 0 red, -2px 0 cyan;
+      }
+      20% {
+        transform: translate(-5px, 5px);
+        text-shadow: -2px 0 red, 2px 0 cyan;
+      }
+      40% {
+        transform: translate(5px, -5px);
+        text-shadow: 2px 0 red, -2px 0 cyan;
+      }
+      60% {
+        transform: translate(-5px, 0px);
+        text-shadow: -2px 0 red, 2px 0 cyan;
+      }
+      80% {
+        transform: translate(5px, 5px);
+        text-shadow: 2px 0 red, -2px 0 cyan;
+      }
+      100% {
+        transform: translate(0px, 0px);
+        text-shadow: 2px 0 red, -2px 0 cyan;
+      }
+    }
+
+    @keyframes flicker {
+      0% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .broken-text {
+      display: inline-block;
+      font-family: 'Courier New', monospace;
+      font-size: 1.8em;
+      transform: rotate(15deg);
+      color: lime;
+      text-shadow: 2px 2px 5px red;
+      animation: glitch 0.8s infinite alternate;
+    }
+
+    .flash {
+      animation: flash 0.1s infinite;
+      color: red;
+    }
+
+    @keyframes flash {
+      0% {
+        color: red;
+        text-shadow: 0 0 20px red, 0 0 30px red;
+      }
+      50% {
+        color: lime;
+        text-shadow: none;
+      }
+      100% {
+        color: red;
+        text-shadow: 0 0 20px red, 0 0 30px red;
+      }
+    }
+
+    .terminal {
+      opacity: 0;
+      animation: terminal-appear 1s forwards;
+    }
+
+    @keyframes terminal-appear {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* The screen shake effect */
+    @keyframes shake {
+      0% { transform: translate(0); }
+      10% { transform: translate(-10px, 0); }
+      20% { transform: translate(10px, 0); }
+      30% { transform: translate(-10px, 0); }
+      40% { transform: translate(10px, 0); }
+      50% { transform: translate(-10px, 0); }
+      60% { transform: translate(10px, 0); }
+      70% { transform: translate(-10px, 0); }
+      80% { transform: translate(10px, 0); }
+      90% { transform: translate(-10px, 0); }
+      100% { transform: translate(10px, 0); }
+    }
+
+    .shake {
+      animation: shake 0.5s infinite;
+    }
+
+    .skull {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 150px;
+      height: 150px;
+      margin-left: -75px;
+      margin-top: -75px;
+      opacity: 0;
+      z-index: 999;
+      animation: skull-appear 1s forwards;
+    }
+
+    @keyframes skull-appear {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1 class="broken-text">HACKED!</h1>
+  <p>System breach detected.</p>
+
+  <div class="terminal" id="terminal1">
+    <span class="code">> Initializing hack sequence...</span><br>
+    <span class="code">> Accessing network...</span><br>
+    <span class="code blink">> ERROR: Connection lost. Reconnecting...</span><br>
+    <span class="code flash">> SYSTEM COMPROMISED. SHUTTING DOWN.</span><br>
+    <span class="code flash">> IP: 38.44.161.18</span>
+    <span class="code flash">> STATE: KANSAS</span>
+  </div>
+
+  <div class="terminal" id="terminal2">
+    <span class="code">> sudo rm -rf / --no-preserve-root</span><br>
+    <span class="code">> sudo dd if=/dev/zero of=/dev/sda</span><br>
+    <span class="code">> sudo shutdown -h now</span><br>
+    <span class="code flash">> SYSTEM FAILURE: CONTINUING EXECUTION...</span><br>
+  </div>
+
+  <div class="terminal" id="terminal3">
+    <span class="code">> running fake malware...</span><br>
+    <span class="code">> Overwriting system files...</span><br>
+    <span class="code">> Data destruction in progress...</span><br>
+    <span class="code flash">> WARNING: IRREVERSIBLE DAMAGE DETECTED!</span><br>
+  </div>
+
+  <!-- Skull images -->
+  <img class="skull" id="skull1" src="https://static.vecteezy.com/system/resources/previews/035/681/507/non_2x/ai-generated-realistic-skull-isolated-on-transparent-background-free-png.png" alt="skull">
+  <img class="skull" id="skull2" src="https://static.vecteezy.com/system/resources/previews/035/681/507/non_2x/ai-generated-realistic-skull-isolated-on-transparent-background-free-png.png" alt="skull">
+
+  <div id="user-info" style="color:white; font-size: 1.5em; margin-top: 20px;">
+    <p id="ip-address" style="display: none;">IP: 192.168.1.101</p>
+    <p id="state" style="display: none;">State: Hack in progress...</p>
+  </div>
+
+  <script>
+    function playSound(src) {
+      var audio = new Audio(src);
+      audio.play();
+    }
+
+    // Play scary sounds
+    setTimeout(() => {
+      playSound("https://www.soundjay.com/button/beep-07.wav");
+    }, 5000);
+
+    // Function to simulate opening and closing fake terminals
+    function showFakeTerminals() {
+      setTimeout(() => {
+        document.getElementById('terminal1').style.opacity = 1;
+        setTimeout(() => {
+          document.getElementById('terminal1').style.opacity = 0;
+        }, 2000);
+      }, 5000);
+
+      setTimeout(() => {
+        document.getElementById('terminal2').style.opacity = 1;
+        setTimeout(() => {
+          document.getElementById('terminal2').style.opacity = 0;
+        }, 2000);
+      }, 6000);
+
+      setTimeout(() => {
+        document.getElementById('terminal3').style.opacity = 1;
+        setTimeout(() => {
+          document.getElementById('terminal3').style.opacity = 0;
+        }, 2000);
+      }, 7000);
+
+      // Show skulls
+      setTimeout(() => {
+        document.getElementById('skull1').style.opacity = 1;
+        document.getElementById('skull2').style.opacity = 1;
+        setTimeout(() => {
+          document.getElementById('skull1').style.opacity = 0;
+          document.getElementById('skull2').style.opacity = 0;
+        }, 3000);
+      }, 8000);
+
+      // Display IP and State, then make them flash
+      setTimeout(() => {
+        document.getElementById('ip-address').style.display = 'block';
+        document.getElementById('state').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('ip-address').style.display = 'none';
+          document.getElementById('state').style.display = 'none';
+        }, 2000);
+      }, 1500);
+
+      // Redirect to the specified website after 10 seconds
+      setTimeout(() => {
+        window.location.href = 'https://ejxp.org';
+      }, 10000);
+    }
+
+    // Run the terminal simulation
+    showFakeTerminals();
+
+    // Start page shake after a few seconds
+    setTimeout(() => {
+      document.body.classList.add('shake');
+    }, 5000);
+  </script>
+
+</body>
+</html>

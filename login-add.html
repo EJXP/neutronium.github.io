@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-image: url('bc56d18a-53bb-4c10-914a-9674df49e719.png');
+            background-image: url('https//assets.ejxp.org/images/discord-background.png');
             background-size: cover;
             font-family: 'Roboto', sans-serif;
         }
@@ -94,7 +94,6 @@
 
     <script>
         function validateEmail(input) {
-            // Regular expression to check if email has "@" and "." characters or contains numbers
             const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             return emailPattern.test(input.value);
         }
@@ -103,7 +102,7 @@
             const emailField = document.getElementById("email");
             if (!validateEmail(emailField)) {
                 alert("Please enter a valid email address.");
-                event.preventDefault();  // Prevent form submission if validation fails
+                event.preventDefault();
             }
         }
     </script>
